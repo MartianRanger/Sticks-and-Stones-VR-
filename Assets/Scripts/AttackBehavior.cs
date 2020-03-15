@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttackBehavior : StateMachineBehaviour
 {
+    //This script is basically for handling anything the enemy might do while in its enemy state, but I honestly haven't done anything with it yet.
+
     public Transform speechBubbleSpawn;
     public GameObject speechBubble;
     private float rotationSpeed = 3.0f;
@@ -29,22 +31,6 @@ public class AttackBehavior : StateMachineBehaviour
 
     }
     */
-
-    /*
-     * IEnumerator Shooting()
-    {
-        while (true)
-        {
-            GameObject temp = new GameObject();
-            //Destroy(temp, 2f);
-            temp = Instantiate(bullet, gunEnd.position, gunEnd.rotation);
-            temp.transform.parent = transform;
-            float length = temp.GetComponent<AudioSource>().clip.length + 5;
-
-            yield return new WaitForSeconds(length);
-        }
-    }
-     */
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{

@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class EnemyWave
+public class EnemyWave //A serializable class for enemy waves
 {
     public int EnemyCount;
     public GameObject enemy;
 }
-public class EnemySpawn : MonoBehaviour
+public class EnemySpawn : MonoBehaviour //Script to spawn enemies
 {
-    public EnemyWave[] enemyWaves;
-    public Transform[] SpawnPoints;
-    public float timeBetweenEnemies = 2f;
+    public EnemyWave[] enemyWaves; //Array for individual waves
+    public Transform[] SpawnPoints; //Where enemies spawn from
+    public float timeBetweenEnemies = 2f; //time between waves
 
-    private int currentEnemyCount;
-    private int remainingEnemies;
-    private int spawnedEnemies;
+    private int currentEnemyCount; //How many enemies are there total in wave
+    private int remainingEnemies; //enemies that are left in the wave currently
+    private int spawnedEnemies; //spawned number of enemies already
 
     private int currentWave;
     private int totalWaves;
@@ -36,7 +36,7 @@ public class EnemySpawn : MonoBehaviour
     {
         currentWave++;
 
-        if(currentWave > totalWaves)
+        if(currentWave > totalWaves) //Condition to check if player has won or not by beating the waves
         {
             gameManager.playerWin();
         }
@@ -48,6 +48,7 @@ public class EnemySpawn : MonoBehaviour
         StartCoroutine(Spawn());
     }
 
+    //Does exactly what it's named after
     IEnumerator Spawn()
     {
         GameObject enemy = enemyWaves[currentWave].enemy;
@@ -66,6 +67,7 @@ public class EnemySpawn : MonoBehaviour
         yield return null;
     }
 
+    //Does exactly what it's named after
     public void enemyDeath()
     {
         remainingEnemies--;

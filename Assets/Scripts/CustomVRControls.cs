@@ -4,9 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 public class CustomVRControls : MonoBehaviour {
-    public Rigidbody bullet;
-    private float nextFireTime;
-    public Transform fireTransform;
+    //All of the main functions the player can do besides moving around (I wasn't going to touch that and instantly ruin the whole project)
+
+    //public Rigidbody bullet;
+    //private float nextFireTime;
+    //public Transform fireTransform;
+
     public float launchForce = 20f;
     public GameObject bomb;
     public GameObject bombPrefab;
@@ -34,26 +37,10 @@ public class CustomVRControls : MonoBehaviour {
     void Start () {
         recorded = false;
         healthBar.maxValue = maxHealth;
-
-
     }
+  
 
-    IEnumerator CaptureMic()
-    {
-        if (isSpeaking == true)
-        {
-            if (audioSource == null) audioSource = GetComponent<AudioSource>();
-            audioSource.clip = Microphone.Start(null, true, 1, AudioSettings.outputSampleRate);
-            audioSource.loop = true;
-            while (!(Microphone.GetPosition(null) > 0)) { }
-            Debug.Log("Start Mic(pos): " + Microphone.GetPosition(null));
-            audioSource.Play();
-            speechSpeed++;
-        }
-        yield return null;
-    }
-
-    public void Fire(float launchForce, float fireRate)
+    /*public void Fire(float launchForce, float fireRate)
     {
         if(Time.time > nextFireTime)
         {
@@ -61,22 +48,8 @@ public class CustomVRControls : MonoBehaviour {
             Rigidbody bulletInstance = Instantiate(bullet, fireTransform.position, fireTransform.rotation) as Rigidbody;
             bulletInstance.velocity = launchForce * fireTransform.forward;
         }
-    }
+    }*/
 
-    public void StartRecord()
-    {
-        int minFreq;
-        int maxFreq;
-        int freq = 44100;
-        Microphone.GetDeviceCaps("", out minFreq, out maxFreq);
-
-        if (maxFreq < 44100)
-            freq = maxFreq;
-
-        recording = Microphone.Start("", false, 300, 44100);
-        startRecordingTime = Time.time;
-        Debug.Log("Going Now!");
-    }
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
@@ -91,21 +64,23 @@ public class CustomVRControls : MonoBehaviour {
         //enemyAnimator.SetInteger("currentHealth", currentHealth);
     }
 
-    // Update is called once per frame
-    public void StopRecord()
+    public void StartRecord() //Methods to start recording with the mic
     {
-        /*StopAllCoroutines();
-        Debug.Log("Geiz!");
-        int lastTime = Microphone.GetPosition(null);
-        if (lastTime == 0) return;
-        Debug.Log("lastTime = " + lastTime);
-        Microphone.End(null);
-        float[] samples = new float[audioSource.clip.samples];
-        audioSource.clip.GetData(samples, 0);
-        float[] clipSamples = new float[lastTime];
-        audioSource.clip = AudioClip.Create("playRecordClip", clipSamples.Length, 1, 44100, false, false);
-        audioSource.clip.SetData(clipSamples, 0);
-        audioSource.Play();*/
+        int minFreq;
+        int maxFreq;
+        int freq = 44100;
+        Microphone.GetDeviceCaps("", out minFreq, out maxFreq);
+
+        if (maxFreq < 44100)
+            freq = maxFreq;
+
+        recording = Microphone.Start("", false, 300, 44100);
+        startRecordingTime = Time.time;
+        Debug.Log("Going Now!");
+    }
+
+    public void StopRecord() //Methods to stop recording with the mic and save the recording into an AudioClip
+    {
         Microphone.End("");
 
         AudioClip recordingNew = AudioClip.Create(recording.name, (int)((Time.time - startRecordingTime) * recording.frequency), recording.channels, recording.frequency, false);
@@ -130,45 +105,27 @@ public class CustomVRControls : MonoBehaviour {
     }
     void Update () {
         // returns true if the primary button (typically “A”) is currently pressed.
-
         if (OVRInput.GetDown(OVRInput.Button.One))
         {
-            /*temp = Instantiate(speechPrefab, speechBubbleSpawn.position, speechBubbleSpawn.rotation);
-            temp.transform.parent = transform;
-            audioSlider.direction = Slider.Direction.LeftToRight;
-            audioSlider.minValue = 0;*/
             isSpeaking = true;
             Debug.Log("Starting to Record");
-            //StartCoroutine(CaptureMic());
             StartRecord();
         }
         if (OVRInput.GetUp(OVRInput.Button.One))
         {
-            /*audioSlider.value = 0;
-            temp.GetComponent<AudioSource>().Stop();
-            temp.transform.parent = null;
-            Destroy(temp);*/
-            //StopAllCoroutines();
             Debug.Log("Ending to Record");
 
             StopRecord();
         }
         if (OVRInput.GetDown(OVRInput.Button.Two))
         {
-            /*temp.transform.parent = null;
-            audioSlider.value = temp.GetComponent<AudioSource>().time;*/
             GameObject temp = new GameObject();
             temp = Instantiate(bubble, speechBubbleSpawn.position, speechBubbleSpawn.rotation);
             speechSpeed = 0;
 
             temp.GetComponent<Rigidbody>().AddForce(speechBubbleSpawn.forward * speechBubbleSpeed, ForceMode.Impulse);
-
-        }
-        /*if (OVRInput.Get(OVRInput.Button.Two))
-        {
             //Fire(launchForce, 1);
-
-        }*/
+        }
         if (OVRInput.GetDown(OVRInput.Button.Three))
         {
             bomb = Instantiate(bombPrefab, bombSpawn.position, bombSpawn.rotation);
@@ -177,10 +134,6 @@ public class CustomVRControls : MonoBehaviour {
             Debug.Log(bomb.GetComponent<Rigidbody>().velocity);
             speechBubble = true;
             Debug.Log("BOMB!");
-        }
-        if (OVRInput.Get(OVRInput.Button.Four))
-        {
-            Fire(launchForce, 1);
         }
         //audioSlider.maxValue = temp.GetComponent<AudioSource>().clip.length;
         //audioSlider.value = temp.GetComponent<AudioSource>().time;
@@ -245,62 +198,5 @@ public class CustomVRControls : MonoBehaviour {
         // recenters the active Gear VR Controller. Has no effect for other controller types.
         OVRInput.RecenterController();
     }
-    void OnTriggerStay(Collider collider)
-    {
-        if (collider.gameObject.tag == "platform")
-        {
-            transform.parent = collider.transform;
-        }
-    }
-    void OnTriggerEnter(Collider collider)
-    {
-        if (collider.gameObject.tag == "SpeechBubble")
-        {
-            speechBubble = false;
-
-        }
-    }
-    void OnTriggerExit(Collider collider)
-    {
-        if (collider.gameObject.tag == "platform")
-        {
-            transform.parent = null;
-
-        }
-    }
-
-    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
-    {
-        float startVolume = audioSource.volume;
-
-        if (audioSource != null)
-        {
-            while (audioSource.volume > 0)
-            {
-                audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
-
-                yield return null;
-            }
-
-            audioSource.Stop();
-            audioSource.volume = startVolume;
-        }
-    }
-
-    public static IEnumerator FadeIn(AudioSource audioSource, float FadeTime)
-    {
-        float startVolume = 0.2f;
-
-        audioSource.volume = 0;
-        audioSource.Play();
-
-        while (audioSource.volume < 1.0f)
-        {
-            audioSource.volume += startVolume * Time.deltaTime / FadeTime;
-
-            yield return null;
-        }
-
-        audioSource.volume = 1f;
-    }
+    
 }
