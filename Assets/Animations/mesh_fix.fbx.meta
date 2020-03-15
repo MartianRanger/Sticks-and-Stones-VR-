@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: a569d42fb87e09a489961f12e2abc905
+guid: 77c2d07f17917b74d94073bc3135024b
 ModelImporter:
-  serializedVersion: 26
+  serializedVersion: 19300
   internalIDToNameTable: []
   externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -67,17 +67,8 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - 929ae9f60e888224fb450a5ea523fc18
-  - 5d3b757635684c548bca844b5887ba64
-  - fffe5005dbaf3a3448ca7f4f698e4e48
-  - 2d6af55779441594a96adc9f4ef2e04d
-  - 9cb97df07eb96f147801998237db61fd
-  - e56e44bc4124a5a42b0a9d6feec14e7b
-  - 2f4ea38ac638b88408486b419a0d5cb8
-  - 935b1410028572641b663d0f0cc21d49
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
     serializedVersion: 3
     human: []
@@ -95,8 +86,10 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
+  avatarSetup: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
