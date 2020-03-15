@@ -2,30 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpeechBubble : Speech
+public class EnemySpeechBubble : Speech //Different speech bubble type that is only used by enemies
 {
-    public AudioClip[] myClips;
+    public AudioClip[] myClips; //Array to store clips for this episode
 
-    // Start is called before the first frame update
+    // Awake is called before the first frame update
     void Awake()
     {
         LoadSound();
     }
 
-    public override void LoadSound()
+    public override void LoadSound() //Takes a random clip from the Audio folder and places it inside our speech bubble
     {
         myClips = Resources.LoadAll<AudioClip>("Audio");
         thisSound = GetComponent<AudioSource>();
         RandomizeSfx(myClips);
-        LoadDamage();
+        LoadDamage(); //Loads Damage necessary for attack
     }
-
-    public void LoadDamage()
-    {
-        damage = (int)(damageFactor * thisSound.clip.length);
-        Debug.Log("DAMGE!" + damageFactor);
-    }
-    public void RandomizeSfx(params AudioClip[] myClips)
+    
+    public void RandomizeSfx(params AudioClip[] myClips) //Helps with randomization
     {
         //Generate a random number between 0 and the length of our array of clips passed in.
         int randomIndex = Random.Range(0, myClips.Length);
@@ -33,14 +28,15 @@ public class EnemySpeechBubble : Speech
         //Set the clip to the clip at our randomly chosen index.
         thisSound.clip = myClips[randomIndex];
     }
-    void OnCollisionEnter(Collision other)
+    void OnCollisionEnter(Collision other) //Method is needed to determine whether or not it hits a player
     {
-        Destroy(gameObject);
-        PlaySound();
+        PlaySound(); //Plays sound at an actual position, which will be whether it hits a collider
         if (other.gameObject.tag == "Player")
         {
             other.gameObject.GetComponent<CustomVRControls>().TakeDamage(damage);
             Debug.Log("Cloud: " + damage);
         }
+        Destroy(gameObject); //Then object is destroyed
+
     }
 }

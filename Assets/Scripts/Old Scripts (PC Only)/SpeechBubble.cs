@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SpeechBubble : MonoBehaviour {
+public class SpeechBubble : MonoBehaviour { //Old script for the speech bubble. It's not used for this project, but it's worth keeping to see how different the game is now.
 
     private bool isPlaying = false;
     private  AudioSource thisSound;
