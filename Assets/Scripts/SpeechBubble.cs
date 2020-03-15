@@ -93,12 +93,12 @@ public class SpeechBubble : MonoBehaviour {
             if(thisSound.isPlaying == false)
             {
                 var hit = other.gameObject;
-                var health = hit.GetComponent<Health>();
+                /*var health = hit.GetComponent<Health>();
                 int damage = Mathf.RoundToInt(damageFactor * thisSound.clip.length);
                 if (health != null)
                 {
                     health.TakeDamage(damage);
-                }
+                }*/
                 Debug.Log("Destroyed!");
                 Destroy(gameObject);
             }

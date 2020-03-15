@@ -21,7 +21,7 @@ public class PowerUp : MonoBehaviour {
         if(other.CompareTag("Player"))
         {
             Pickup(other);
-            other.GetComponent<Health>().currentHealth += 25;
+            //other.GetComponent<Health>().currentHealth += 25;
         }
     }
     void Pickup(Collider player)
