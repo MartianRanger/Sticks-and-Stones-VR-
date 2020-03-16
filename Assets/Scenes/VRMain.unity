@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -96,6 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
+    m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -127,6 +128,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1191708624223626, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1351118750212460, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4456737288431468, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 35.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4607729973471680, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 126.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4646901395542722, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -5.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4711420348770212, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.3329725
@@ -179,32 +200,12 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4607729973471680, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 126.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4456737288431468, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 35.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4646901395542722, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 1191708624223626, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1351118750212460, guid: e981ccbc7900fc046b873efb72b4b7c9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3903347264675573003, guid: e981ccbc7900fc046b873efb72b4b7c9,
+    - target: {fileID: 3312244544760538655, guid: e981ccbc7900fc046b873efb72b4b7c9,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3312244544760538655, guid: e981ccbc7900fc046b873efb72b4b7c9,
+    - target: {fileID: 3903347264675573003, guid: e981ccbc7900fc046b873efb72b4b7c9,
         type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -267,8 +268,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -291,12 +290,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 378860235}
   m_CullTransparentMesh: 0
+--- !u!4 &467941598 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400006, guid: ce816f2e6abb0504092c23ed9b970dfd,
+    type: 3}
+  m_PrefabInstance: {fileID: 1440644474}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &471208980 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6513427218927953232, guid: 3b29a84554e33be4fb0639c4d6d7d4b0,
     type: 3}
   m_PrefabInstance: {fileID: 6513427218862590854}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &478508713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5925711150188938013, guid: e981ccbc7900fc046b873efb72b4b7c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 247098566}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &478508719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478508713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af549e151ee9dfd4c88ab094ed5adc26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 467941598}
+  portal: {fileID: 1154378835}
 --- !u!1 &576379867
 GameObject:
   m_ObjectHideFlags: 0
@@ -435,6 +460,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1154378835 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8490036150862644087, guid: e981ccbc7900fc046b873efb72b4b7c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 247098566}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1238065613
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,8 +548,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1238065616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,8 +566,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -612,18 +639,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1523397128, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1523397128, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1020380529, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 415079855, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -632,6 +647,18 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1022546694}
+    - target: {fileID: 1020380529, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523397128, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1523397128, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce816f2e6abb0504092c23ed9b970dfd, type: 3}
 --- !u!1 &1442630897
@@ -725,8 +752,9 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489798320}
   m_Enabled: 1
-  serializedVersion: 9
+  serializedVersion: 10
   m_Type: 1
+  m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
   m_Intensity: 1
   m_Range: 10
@@ -873,8 +901,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1561072169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,8 +919,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   m_Type: 1
   m_PreserveAspect: 0
@@ -1012,8 +1036,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 75
@@ -1113,6 +1135,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -1214,8 +1237,6 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 14
@@ -1245,16 +1266,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1874645192}
     m_Modifications:
-    - target: {fileID: 6513427218927953234, guid: 3b29a84554e33be4fb0639c4d6d7d4b0,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemySpawn
-      objectReference: {fileID: 0}
-    - target: {fileID: 6513427218927953234, guid: 3b29a84554e33be4fb0639c4d6d7d4b0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6513427218927953232, guid: 3b29a84554e33be4fb0639c4d6d7d4b0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1309,6 +1320,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513427218927953234, guid: 3b29a84554e33be4fb0639c4d6d7d4b0,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemySpawn
+      objectReference: {fileID: 0}
+    - target: {fileID: 6513427218927953234, guid: 3b29a84554e33be4fb0639c4d6d7d4b0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6513427219820856323, guid: 3b29a84554e33be4fb0639c4d6d7d4b0,
         type: 3}

@@ -27,7 +27,7 @@ public abstract class Speech : MonoBehaviour //Created a main class to create mu
 
     public void PlaySound() //Plays sound at an actual position, which will be whether it hits a collider
     {
-        AudioSource.PlayClipAtPoint(thisSound.clip, transform.position, 1f);
+        AudioSource.PlayClipAtPoint(thisSound.clip, transform.position, 0.2f);
     }
 
 }

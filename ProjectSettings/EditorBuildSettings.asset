@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VREndScreen.unity
     guid: d68b5176fbbf8b142a148765b18a4321
+  - enabled: 1
+    path: Assets/Scenes/VRPop.unity
+    guid: 73994302addf07b408a6985b4196190a
+  - enabled: 1
+    path: Assets/Scenes/VRCave.unity
+    guid: bb9c57bbd019a6742b5ed04528b69a85
   m_configObjects: {}
