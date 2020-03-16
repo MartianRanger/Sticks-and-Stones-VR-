@@ -9,7 +9,7 @@ public class EnvironmentSpawn : MonoBehaviour //Script specifically for the spac
     // Start is called before the first frame update
     void Start()
     {
-        instantiateInCircle(prefab, transform.position, 20);
+        instantiateInCircle(prefab, transform.position, 30);
     }
 
     public void instantiateInCircle(GameObject obj, Vector3 location, int howMany) //Literally what the entire script is for
