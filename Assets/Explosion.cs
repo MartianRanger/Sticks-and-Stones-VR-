@@ -51,6 +51,9 @@ public class Explosion : MonoBehaviour {
         debris.transform.position = transform.position + new Vector3(prefabSize * x, prefabSize * y, prefabSize * z) - explosion;
         debris.transform.localScale = new Vector3(5, 5, 5);
 
+        Destroy(debris, Random.Range(0.5f, 5f));
+
+
         debris.AddComponent<Rigidbody>(); //adds rigidbody (might be useless in some areas)
         debris.GetComponent<Rigidbody>().mass = prefabSize; //sets mass
     }
