@@ -26,6 +26,7 @@ public class EnemyAI : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform; //Finds player position in scene
         healthBar.maxValue = maxHealth; //Sets health
         healthBar.value = currentHealth;
+
     }
     //Possible methods to find player
     private Vector3 GetDirection()
@@ -70,6 +71,8 @@ public class EnemyAI : MonoBehaviour
         //Code to connect to animation controller to know when to change phases based on distance
         float distance = Vector3.Distance(transform.position, player.position);
 
-        enemyAnimator.SetInteger("distanceFromPlayer", Mathf.RoundToInt(distance)); 
+        enemyAnimator.SetInteger("distanceFromPlayer", Mathf.RoundToInt(distance));
+        transform.LookAt(player.transform.position);
+
     }
 }

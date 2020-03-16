@@ -468,7 +468,7 @@ MonoBehaviour:
   gridX: 30
   gridZ: 30
   prefab: {fileID: 7079237702395332464, guid: ec3ac7955712d034686219949c8e816b, type: 3}
-  gridOffset: 3.5
+  gridOffset: 3.3
 --- !u!4 &1729592219
 Transform:
   m_ObjectHideFlags: 0
