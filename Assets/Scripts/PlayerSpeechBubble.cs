@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerSpeechBubble : Speech //Different speech bubble type that is only used by enemies
 {
+    public float thrust = 1.0f;
+    public Rigidbody rb;
 
     public void CreateSpeechBubble(AudioClip recording) //Was originally going to be Load Sound method, but didn't work with recordings. Stores recording into speech bubble.
     {
@@ -25,6 +27,9 @@ public class PlayerSpeechBubble : Speech //Different speech bubble type that is 
         if (other.gameObject.tag == "Enemy")
         {
             other.gameObject.GetComponent<EnemyAI>().TakeDamage(damage);
+            rb = other.gameObject.GetComponent<Rigidbody>();
+            rb.AddForce(0, 0, thrust, ForceMode.Impulse);
+
             Debug.Log("Cloud: " + damage);
 
         }
