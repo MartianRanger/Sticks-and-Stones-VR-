@@ -36,4 +36,10 @@ public class PlayerSpeechBubble : Speech //Different speech bubble type that is 
         Destroy(gameObject); //Then object is destroyed
 
     }
+
+    public void LoadDamage() //Calcuates the damage for each bubble 
+    {
+        damage = (int)(damageFactor * thisSound.clip.length);
+        Debug.Log("DAMGE!" + damageFactor);
+    }
 }

@@ -19,23 +19,13 @@ public class GameManager : MonoBehaviour //Overall game manager
     }
     public void GameOver()
     {
-        //Enter game Over code
+        SceneManager.LoadScene("You Lose", LoadSceneMode.Single);
     }
 
     public void playerWin()
     {
-        //Enter different scene
+        SceneManager.LoadScene("You Win", LoadSceneMode.Single);
     }
-    /*
-     *  IEnumerator waitAndLoad()
-    {
-        yield return new WaitForSeconds(5f); //wait for load to happen
 
-        SceneManager.LoadScene("VRMain"); //load scene
-
-            //yield return new WaitForSeconds(.02f); //wait for load to happen
-
-        }
-     */
 }
 

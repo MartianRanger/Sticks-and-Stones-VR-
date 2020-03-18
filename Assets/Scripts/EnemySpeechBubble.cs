@@ -19,7 +19,13 @@ public class EnemySpeechBubble : Speech //Different speech bubble type that is o
         RandomizeSfx(myClips);
         LoadDamage(); //Loads Damage necessary for attack
     }
-    
+
+    public void LoadDamage() //Calcuates the damage for each bubble 
+    {
+        damage = (int) thisSound.clip.length * 5;
+        Debug.Log("DAMGE!" + damage);
+    }
+
     public void RandomizeSfx(params AudioClip[] myClips) //Helps with randomization
     {
         //Generate a random number between 0 and the length of our array of clips passed in.

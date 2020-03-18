@@ -19,12 +19,6 @@ public abstract class Speech : MonoBehaviour //Created a main class to create mu
 
     public abstract void LoadSound(); //Created abstract method for all speech bubbles to use
 
-    public void LoadDamage() //Calcuates the damage for each bubble 
-    {
-        damage = (int)(damageFactor * thisSound.clip.length);
-        Debug.Log("DAMGE!" + damageFactor);
-    }
-
     public void PlaySound() //Plays sound at an actual position, which will be whether it hits a collider
     {
         AudioSource.PlayClipAtPoint(thisSound.clip, transform.position, 0.2f);

@@ -7,8 +7,11 @@ public class Bomb : MonoBehaviour {
     public float power = 10.0f;
     public float radius = 5.0f;
     public float force = 1.0f;
-	// Use this for initialization
-	void Start () {
+
+    public GameObject explosionPrefab;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	void FixedUpdate()
@@ -30,6 +33,9 @@ public class Bomb : MonoBehaviour {
                 rb.AddExplosionForce(power, explosionPosition, radius, force, ForceMode.Impulse);
             }
         }
+        GameObject explosion = (GameObject)Instantiate(explosionPrefab, transform.position, explosionPrefab.transform.rotation);
+        Destroy(explosion, explosion.GetComponent<ParticleSystem>().main.startLifetimeMultiplier);
+
         Destroy(gameObject);
         Debug.Log("BOMB!");
 	}

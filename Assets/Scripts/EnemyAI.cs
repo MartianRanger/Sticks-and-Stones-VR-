@@ -72,7 +72,7 @@ public class EnemyAI : MonoBehaviour
         float distance = Vector3.Distance(transform.position, player.position);
 
         enemyAnimator.SetInteger("distanceFromPlayer", Mathf.RoundToInt(distance));
-        transform.LookAt(player.transform.position);
+        //transform.LookAt(player.transform.position);
 
     }
 }

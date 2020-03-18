@@ -33,12 +33,17 @@ public class CustomVRControls : MonoBehaviour {
     public float speechSpeed = 0;
     public int currentHealth = maxHealth;
     public const int maxHealth = 100;
+
+    private GameManager gameManager;
+
     // Use this for initialization
     void Start () {
         recorded = false;
         healthBar.maxValue = maxHealth;
+        gameManager = Object.FindObjectOfType<GameManager>();
+
     }
-  
+
 
     /*public void Fire(float launchForce, float fireRate)
     {
@@ -59,6 +64,8 @@ public class CustomVRControls : MonoBehaviour {
             currentHealth = 0;
             Destroy(gameObject);
             Debug.Log("Dead!");
+            gameManager.GameOver();
+
         }
         healthBar.value = currentHealth;
         //enemyAnimator.SetInteger("currentHealth", currentHealth);
